@@ -45,15 +45,15 @@ vector<listNode<T> *> createList(treeNode<T> *root)
 					head = curr;
 					depthList.push_back(head);
 					q.push(temp->left);
-					curr = head->next;
 					
 				}
 				else
 				{
-					curr = new listNode<T>(temp->left->data);
-					cout<<curr->data<<endl;
+					curr->next = new listNode<T>(temp->left->data);
+                    curr = curr->next;
+					//cout<<curr->data<<endl;
 					q.push(temp->left);
-					curr = curr->next;
+					
 				}
 			}
 			if(temp->right != NULL)
@@ -64,14 +64,14 @@ vector<listNode<T> *> createList(treeNode<T> *root)
 					head = curr;
 					depthList.push_back(head);
 					q.push(temp->right);
-					curr = head->next;
+					//curr = head->next;
 				}
 				else
 				{
-					curr = new listNode<T>(temp->right->data);
-					cout<<curr->data<<endl;
+					curr->next = new listNode<T>(temp->right->data);
+                    curr = curr->next;
+					//cout<<curr->data<<endl;
 					q.push(temp->right);
-					curr = curr->next;
 				}
 			}
 		}
